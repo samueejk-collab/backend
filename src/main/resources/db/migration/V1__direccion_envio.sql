@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS direccion_envio (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    calle VARCHAR(100) NOT NULL,
+    numero VARCHAR(20) NOT NULL,
+    piso_depto VARCHAR(20) DEFAULT NULL,
+    barrio VARCHAR(100) NOT NULL,
+    ciudad VARCHAR(50) NOT NULL,
+    provincia VARCHAR(50) NOT NULL,
+    codigo_postal VARCHAR(20) NOT NULL
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

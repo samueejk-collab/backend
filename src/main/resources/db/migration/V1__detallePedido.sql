@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS detalles_pedidos (
+CREATE TABLE IF NOT EXISTS detallePedido(
     id INT AUTO_INCREMENT PRIMARY KEY,
     pedido_id INT NOT NULL,
     variante_id INT NOT NULL,

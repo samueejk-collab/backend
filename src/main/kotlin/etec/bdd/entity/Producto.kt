@@ -10,7 +10,7 @@ import java.math.BigDecimal
 
 @Entity
 @Table(name = "productos")
-class Producto(
+open class Producto(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
@@ -23,4 +23,6 @@ class Producto(
 
     @Column(nullable = false)
     var stock: Int = 0,
-)
+) {
+    constructor() : this(null, "", BigDecimal.ZERO, 0)
+}

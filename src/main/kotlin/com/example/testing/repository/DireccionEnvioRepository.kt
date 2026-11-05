@@ -1,6 +1,6 @@
 package com.example.testing.repository
 
 import com.example.testing.entity.DireccionEnvio
+import org.springframework.data.jpa.repository.JpaRepository
 
-@Repository
-interface DireccionEnvioRepository : JpaRepository<DireccionEnvio, Long>
+interface DireccionEnvioRepository : JpaRepository<DireccionEnvio, Int>

@@ -1,6 +1,6 @@
 package com.example.testing.repository
 
 import com.example.testing.entity.Clientes
+import org.springframework.data.jpa.repository.JpaRepository
 
-@Repository
-interface ClientesRepository : JpaRepository<Clientes, Long>
+interface ClientesRepository : JpaRepository<Clientes, Int>

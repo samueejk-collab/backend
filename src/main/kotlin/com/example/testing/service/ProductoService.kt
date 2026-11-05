@@ -1,6 +1,16 @@
 package com.example.testing.service
 
+import com.example.testing.dto.ProductoRequest
 import com.example.testing.dto.ProductoResponse
+import com.example.testing.entity.Producto
+import com.example.testing.exception.ProductoNoEncontradoException
+import com.example.testing.exception.RecursoNoEncontradoException
+import com.example.testing.repository.CategoriasRepository
+import com.example.testing.repository.ProductoRepository
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
+import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 
 @Service
 class ProductoService(
@@ -20,7 +30,7 @@ class ProductoService(
     @Transactional
     fun crear(req: ProductoRequest): ProductoResponse {
         req.categoriaId?.let {
-            if (!categoriasRepository.existsById(it))RecursoNoEncontradoException("Categoría", it)
+            if (!categoriasRepository.existsById(it)) throw RecursoNoEncontradoException("Categoría", it)
         }
         val guardado = productoRepository.save(
             Producto(

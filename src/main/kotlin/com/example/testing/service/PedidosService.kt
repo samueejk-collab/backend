@@ -7,8 +7,10 @@ import com.example.testing.exception.RecursoNoEncontradoException
 import com.example.testing.repository.ClientesRepository
 import com.example.testing.repository.DireccionEnvioRepository
 import com.example.testing.repository.PedidosRepository
-import sun.jvm.hotspot.debugger.Page
-import java.awt.print.Pageable
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
+import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 
 @Service
 class PedidosService(

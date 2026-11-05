@@ -8,21 +8,20 @@ import jakarta.persistence.Id
 import jakarta.persistence.Table
 import java.math.BigDecimal
 
+
 @Entity
 @Table(name = "productos")
-open class Producto(
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+class Producto(
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
-
     @Column(nullable = false, length = 120)
     var nombre: String = "",
-
+    @Column(length = 255)
+    var descripcion: String? = null,
     @Column(nullable = false, precision = 10, scale = 2)
     var precio: BigDecimal = BigDecimal.ZERO,
-
     @Column(nullable = false)
     var stock: Int = 0,
-) {
-    constructor() : this(null, "", BigDecimal.ZERO, 0)
-}
+    @Column(name = "categoria_id")
+    var categoriaId: Int? = null,
+)

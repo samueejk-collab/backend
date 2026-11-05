@@ -8,10 +8,11 @@ import java.math.BigDecimal
 data class ProductoResponse(
     val id: Long,
     val nombre: String,
+    val descripcion: String?,
+    val categoriaId: Int?,
 
     @JsonSerialize(using = ToStringSerializer::class)
     val precio: BigDecimal,
-
     val stock: Int,
 ) {
     companion object {
@@ -21,6 +22,9 @@ data class ProductoResponse(
                 nombre = p.nombre,
                 precio = p.precio,
                 stock = p.stock,
+                descripcion = p.descripcion,
+                categoriaId = p.categoriaId,
+
             )
     }
 }

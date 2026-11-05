@@ -1,9 +1,6 @@
 package etec.bdd.dto
 
 data class DireccionEnvioResponse(
-    val id: Long,
-    val clienteId: Long,
-    val calle: String,
-    val ciudad: String,
-    val codigoPostal: String
+    val id: Int, val calle: String, val numero: String, val pisoDepto: String?,
+    val barrio: String, val ciudad: String, val provincia: String, val codigoPostal: String,
 )

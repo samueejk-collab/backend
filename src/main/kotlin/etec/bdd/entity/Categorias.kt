@@ -9,16 +9,11 @@ import jakarta.persistence.Table
 
 @Entity
 @Table(name = "categorias")
-open class Categorias(
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long? = null,
-
+class Categorias(
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Int? = null,
     @Column(nullable = false, length = 50, unique = true)
     var nombre: String = "",
-
     @Column(length = 255)
-    var descripcion: String? = null
-) {
-    constructor() : this(null, "", null)
-}
+    var descripcion: String? = null,
+)

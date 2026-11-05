@@ -50,4 +50,9 @@ class GlobalExceptionHandler{
         )
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(body)
     }
+    @ExceptionHandler(RecursoNoEncontradoException::class)
+    fun handleRecursoNoEncontrado(ex: RecursoNoEncontradoException): ResponseEntity<ErrorResponse> =
+        ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+            ErrorResponse(status = 404, error = "Not Found", message = ex.message ?: "Recurso no encontrado")
+        )
 }

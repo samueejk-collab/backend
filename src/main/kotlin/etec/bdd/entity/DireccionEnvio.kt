@@ -12,7 +12,7 @@ import jakarta.persistence.Table
 class DireccionEnvio(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long? = null,
+    var id: Int? = null,
 
     @Column(nullable = false, length = 100)
     var calle: String = "",

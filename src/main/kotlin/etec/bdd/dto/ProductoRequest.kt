@@ -19,4 +19,8 @@ data class ProductoRequest(
     @field:NotNull
     @field:Min(0)
     val stock: Int,
+
+    @field:Size(max = 255)
+    val descripcion: String? = null,
+    val categoriaId: Int? = null,
 )

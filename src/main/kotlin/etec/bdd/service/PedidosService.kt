@@ -1,0 +1,35 @@
+package etec.bdd.service
+
+@Service
+class PedidosService(
+    private val pedidosRepository: PedidosRepository,
+    private val clientesRepository: ClientesRepository,
+    private val direccionEnvioRepository: DireccionEnvioRepository,
+) {
+    @Transactional(readOnly = true)
+    fun listar(pageable: Pageable): Page<PedidosResponse> =
+        pedidosRepository.findAll(pageable).map { PedidosResponse.fromEntity(it) }
+
+    @Transactional(readOnly = true)
+    fun obtener(id: Int): PedidosResponse =
+        pedidosRepository.findById(id)
+            .map { PedidosResponse.fromEntity(it) }
+            .orElseThrow { RecursoNoEncontradoException("Pedido", id) }
+
+    @Transactional
+    fun crear(req: PedidosRequest): PedidosResponse {
+        val cliente = clientesRepository.findById(req.clienteId)
+            .orElseThrow { RecursoNoEncontradoException("Cliente", req.clienteId) }
+        val direccion = direccionEnvioRepository.findById(req.direccionEnvioId)
+            .orElseThrow { RecursoNoEncontradoException("Dirección de envío", req.direccionEnvioId) }
+
+        val pedido = Pedidos(
+            cliente = cliente,
+            direccionEnvio = direccion,
+            subtotal = req.subtotal,
+            costoEnvio = req.costoEnvio,
+            total = req.subtotal + req.costoEnvio,
+        )
+        return PedidosResponse.fromEntity(pedidosRepository.save(pedido))
+    }
+}

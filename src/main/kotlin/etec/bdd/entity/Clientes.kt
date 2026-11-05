@@ -12,7 +12,7 @@ class Clientes(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cliente")
-    var idCliente: Long? = null,
+    var idCliente: Int? = null,
 
     @Column(name = "nombre_cliente", nullable = false, length = 100)
     var nombreCliente: String = "",

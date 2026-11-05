@@ -4,7 +4,6 @@ import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.Size
 
 data class CategoriasRequest(
-    @field:NotBlank(message = "El nombre de la categoría no puede estar vacío")
-    @field:Size(min = 1, max = 100, message = "El nombre debe tener entre 1 y 100 caracteres")
-    val nombre: String
+    @field:NotBlank @field:Size(max = 50) val nombre: String,
+    @field:Size(max = 255) val descripcion: String? = null,
 )

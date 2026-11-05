@@ -5,13 +5,8 @@ import jakarta.validation.constraints.NotEmpty
 import jakarta.validation.constraints.NotNull
 
 data class PedidosRequest(
-    @field:NotNull(message = "El ID del cliente es obligatorio")
-    val clienteId: Long,
-
-    @field:NotNull(message = "El ID de la dirección de envío es obligatorio")
-    val direccionEnvioId: Long,
-
-    @field:NotEmpty(message = "El pedido debe contener al menos un detalle de producto")
-    @field:Valid // Fuerza a validar también los objetos internos de la lista
-    val detalles: List<DetallePedidoRequest>
+    @field:NotNull val clienteId: Int,
+    @field:NotNull val direccionEnvioId: Int,
+    @field:NotNull @field:DecimalMin("0.0") val subtotal: Float,
+    @field:DecimalMin("0.0") val costoEnvio: Float = 0.0f,
 )

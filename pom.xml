@@ -28,7 +28,7 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
-		<kotlin.version>2.3.21</kotlin.version>
+		<kotlin.version>2.3.10</kotlin.version>
 		<kotest.version>6.2.0</kotest.version>
 		<mockk.version>1.14.11</mockk.version>
 	</properties>
@@ -128,6 +128,11 @@
             <version>${kotlin.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib-jdk8</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
 	</dependencies>
 
 	<build>
@@ -168,7 +173,7 @@
 						<plugin>spring</plugin>
 						<plugin>jpa</plugin>
 					</compilerPlugins>
-				<jvmTarget>21</jvmTarget>
+				<jvmTarget>1.8</jvmTarget>
                 </configuration>
 				<dependencies>
 					<dependency>

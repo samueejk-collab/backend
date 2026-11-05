@@ -1,5 +1,6 @@
-package etec.bdd.dto
+package com.example.testing.dto
 
+import com.example.testing.entity.Pedidos
 import java.time.LocalDateTime
 
 data class PedidosResponse(
@@ -23,7 +24,7 @@ data class PedidosResponse(
             costoEnvio = p.costoEnvio,
             total = p.total,
             estadoEnvio = p.estadoEnvio,
-            mpStatus = p.mpStatus,
+            mpStatus = p.mpStatus
         )
     }
 }

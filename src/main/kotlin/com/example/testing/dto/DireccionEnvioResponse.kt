@@ -1,4 +1,4 @@
-package etec.bdd.dto
+package com.example.testing.dto
 
 data class DireccionEnvioResponse(
     val id: Int, val calle: String, val numero: String, val pisoDepto: String?,

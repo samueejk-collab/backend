@@ -1,4 +1,4 @@
-package etec.bdd.dto
+package com.example.testing.dto
 
 import jakarta.validation.constraints.DecimalMin
 import jakarta.validation.constraints.Min

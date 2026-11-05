@@ -1,4 +1,6 @@
-package etec.bdd.service
+package com.example.testing.service
+
+import com.example.testing.dto.ProductoResponse
 
 @Service
 class ProductoService(

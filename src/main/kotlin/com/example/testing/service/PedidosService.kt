@@ -1,4 +1,14 @@
-package etec.bdd.service
+package com.example.testing.service
+
+import com.example.testing.dto.PedidosRequest
+import com.example.testing.dto.PedidosResponse
+import com.example.testing.entity.Pedidos
+import com.example.testing.exception.RecursoNoEncontradoException
+import com.example.testing.repository.ClientesRepository
+import com.example.testing.repository.DireccionEnvioRepository
+import com.example.testing.repository.PedidosRepository
+import sun.jvm.hotspot.debugger.Page
+import java.awt.print.Pageable
 
 @Service
 class PedidosService(

@@ -1,4 +1,4 @@
-package etec.bdd.entity
+package com.example.testing.entity
 
 import jakarta.persistence.Column
 import jakarta.persistence.Entity

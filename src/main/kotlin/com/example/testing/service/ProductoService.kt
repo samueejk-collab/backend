@@ -30,7 +30,9 @@ class ProductoService(
     @Transactional
     fun crear(req: ProductoRequest): ProductoResponse {
         req.categoriaId?.let {
-            if (!categoriasRepository.existsById(it)) throw RecursoNoEncontradoException("Categoría", it)
+            if (!categoriasRepository.existsById(it)) {
+                throw RecursoNoEncontradoException("Categoría", it)
+            }
         }
         val guardado = productoRepository.save(
             Producto(

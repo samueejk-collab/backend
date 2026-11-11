@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
 import tools.jackson.core.JacksonException
 import java.time.LocalDateTime
+import org.springframework.dao.DataIntegrityViolationException
 
 data class ErrorResponse(
     val timestamp: LocalDateTime = LocalDateTime.now(),
@@ -54,5 +55,14 @@ class GlobalExceptionHandler{
     fun handleRecursoNoEncontrado(ex: RecursoNoEncontradoException): ResponseEntity<ErrorResponse> =
         ResponseEntity.status(HttpStatus.NOT_FOUND).body(
             ErrorResponse(status = 404, error = "Not Found", message = ex.message ?: "Recurso no encontrado")
+        )
+    @ExceptionHandler(DataIntegrityViolationException::class)
+    fun handleIntegridad(ex: DataIntegrityViolationException): ResponseEntity<ErrorResponse> =
+        ResponseEntity.status(HttpStatus.CONFLICT).body(
+            ErrorResponse(
+                status = 409,
+                error = "Conflict",
+                message = "Ya existe un registro con esos datos (valor duplicado) o falta una referencia válida"
+            )
         )
 }
